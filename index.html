@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>OBSIDIAN HOUSE</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,156 +21,184 @@ body{
 font-family:'Inter',sans-serif;
 background:#050505;
 color:white;
-padding:40px 20px;
+overflow-x:hidden;
 }
 
-.container{
-max-width:1000px;
-margin:auto;
+.hero{
+min-height:100vh;
+padding:40px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding-top:100px;
+background:
+linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
 }
 
-.small{
-letter-spacing:6px;
+.logo{
+letter-spacing:8px;
 text-transform:uppercase;
-color:#777;
 font-size:12px;
-margin-bottom:20px;
+color:#999;
+margin-bottom:25px;
 }
 
-h1{
-font-size:72px;
-font-weight:700;
-margin-bottom:20px;
-line-height:1.1;
+.hero h1{
+font-size:80px;
+max-width:1000px;
+line-height:1;
+margin-bottom:25px;
 }
 
-h2{
+.hero h2{
 font-size:28px;
 font-weight:400;
 color:#d1d1d1;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
-.hero-text{
+.hero p{
+max-width:750px;
 font-size:18px;
 line-height:1.8;
-color:#8a8a8a;
-max-width:700px;
-margin:auto;
+color:#9a9a9a;
 }
 
 .btn{
 display:inline-block;
-margin-top:50px;
+margin-top:45px;
 padding:18px 42px;
 background:white;
 color:black;
 text-decoration:none;
 border-radius:14px;
 font-weight:600;
-transition:0.3s ease;
+transition:.3s ease;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-opacity:0.9;
+transform:translateY(-4px);
+opacity:.9;
 }
 
 .section{
+padding:120px 8%;
+}
+
+.section-title{
+font-size:52px;
+margin-bottom:20px;
+text-align:center;
+}
+
+.section-sub{
+max-width:700px;
+margin:auto;
+text-align:center;
+color:#888;
+line-height:1.8;
+font-size:18px;
+margin-bottom:70px;
+}
+
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:120px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
 background:#111;
 border:1px solid #222;
-padding:40px 30px;
-border-radius:20px;
-transition:0.3s ease;
+padding:40px 35px;
+border-radius:24px;
+transition:.3s ease;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 border-color:#444;
 }
 
 .card h3{
-margin-bottom:15px;
-font-size:24px;
+font-size:26px;
+margin-bottom:18px;
 }
 
 .card p{
+color:#888;
+line-height:1.8;
 font-size:16px;
-line-height:1.7;
-color:#777;
 }
 
 .showcase{
-margin-top:140px;
-text-align:center;
-}
-
-.showcase h2{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.showcase p{
-color:#888;
-max-width:700px;
-margin:auto;
-line-height:1.8;
-}
-
-.mockup-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
-margin-top:50px;
+margin-top:60px;
 }
 
-.mockup{
-height:320px;
-background:linear-gradient(145deg,#111,#1a1a1a);
+.showcase img{
+width:100%;
+height:420px;
+object-fit:cover;
 border-radius:24px;
 border:1px solid #222;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-color:#555;
-transition:0.3s ease;
+transition:.3s ease;
 }
 
-.mockup:hover{
+.showcase img:hover{
 transform:scale(1.02);
-border-color:#444;
+}
+
+.quote{
+margin-top:140px;
+text-align:center;
+padding:0 20px;
+}
+
+.quote h2{
+font-size:58px;
+max-width:900px;
+margin:auto;
+line-height:1.2;
+}
+
+.quote p{
+margin-top:25px;
+color:#777;
+font-size:18px;
 }
 
 .footer{
-margin-top:140px;
-padding-bottom:40px;
+margin-top:120px;
+padding:50px 20px;
 text-align:center;
-color:#555;
+border-top:1px solid #151515;
+color:#666;
 font-size:14px;
 }
 
 @media(max-width:768px){
 
-h1{
-font-size:48px;
+.hero h1{
+font-size:52px;
 }
 
-h2{
+.hero h2{
 font-size:22px;
 }
 
-.hero-text{
-font-size:16px;
+.section-title{
+font-size:38px;
+}
+
+.quote h2{
+font-size:38px;
 }
 
 }
@@ -180,9 +208,9 @@ font-size:16px;
 
 <body>
 
-<div class="container">
+<section class="hero">
 
-<div class="small">
+<div class="logo">
 OBSIDIAN HOUSE
 </div>
 
@@ -194,38 +222,51 @@ Launch Your Own Luxury Clothing Brand
 Without Doing The Hard Part
 </h2>
 
-<p class="hero-text">
+<p>
 We help creators launch premium fashion brands by handling the backend —
-websites, branding, products, and drops.
+websites, branding, products, and exclusive drops.
 
 You bring the audience.
 We build the business.
 </p>
 
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScN5eBe0yhyowvEnkS6aoYWaPBurl5lEr55Ss7F5CxaDOVT0A/viewform" target="_blank">
+<a class="btn" href="PASTE YOUR GOOGLE FORM LINK HERE" target="_blank">
 APPLY NOW
 </a>
 
-<div class="section">
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Built For Creators With Motion
+</h2>
+
+<p class="section-sub">
+Whether you're an artist, athlete, influencer, or creator —
+we help transform your audience into a premium fashion brand.
+</p>
+
+<div class="cards">
 
 <div class="card">
-<h3>Luxury Brand Design</h3>
+<h3>Luxury Branding</h3>
 <p>
-We create premium fashion identities designed around your image and audience.
+We build clean, premium identities designed to feel expensive and exclusive.
 </p>
 </div>
 
 <div class="card">
-<h3>Exclusive Product Drops</h3>
+<h3>Exclusive Drops</h3>
 <p>
-Limited releases engineered to build hype, demand, and exclusivity.
+Limited releases designed to create hype, scarcity, and demand.
 </p>
 </div>
 
 <div class="card">
-<h3>Complete Backend Setup</h3>
+<h3>Full Backend</h3>
 <p>
-We handle websites, products, branding, and launch systems for you.
+Websites, products, branding, launch systems — we handle everything.
 </p>
 </div>
 
@@ -233,37 +274,31 @@ We handle websites, products, branding, and launch systems for you.
 
 <div class="showcase">
 
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1977&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<section class="quote">
+
 <h2>
-Built For Creators With Motion
+“Modern creators don’t just need followers.
+They need ownership.”
 </h2>
 
 <p>
-Whether you're a rapper, athlete, influencer, or creator —
-we help turn your audience into a luxury fashion brand.
+OBSIDIAN HOUSE helps creators build real digital fashion brands.
 </p>
 
-<div class="mockup-grid">
-
-<div class="mockup">
-Future Brand Preview
-</div>
-
-<div class="mockup">
-Luxury Drop System
-</div>
-
-<div class="mockup">
-Premium Clothing Brand
-</div>
-
-</div>
-
-</div>
+</section>
 
 <div class="footer">
 © 2026 OBSIDIAN HOUSE — All Rights Reserved
-</div>
-
 </div>
 
 </body>
