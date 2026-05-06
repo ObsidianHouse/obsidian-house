@@ -88,10 +88,17 @@ width:100%;
 font-family:'Orbitron',sans-serif;
 font-size:82px;
 line-height:0.95;
-margin-bottom:28px;
+margin-bottom:24px;
 background:linear-gradient(to right,#ffffff,#8f8fff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+.hero-text h2{
+font-size:28px;
+font-weight:400;
+color:#d1d1d1;
+margin-bottom:28px;
 }
 
 .hero-text p{
@@ -227,53 +234,62 @@ margin-bottom:8px;
 color:#cfcfcf;
 }
 
-/* PRODUCTS */
+/* FEATURES */
 
-.products{
+.features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:24px;
 margin-top:90px;
 }
 
-.product{
+.feature{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.08);
+padding:40px 30px;
 border-radius:24px;
-overflow:hidden;
+backdrop-filter:blur(14px);
 transition:.3s;
 }
 
-.product:hover{
+.feature:hover{
 transform:translateY(-6px);
 border-color:#5d67ff;
 }
 
-.product img{
-width:100%;
-height:360px;
-object-fit:cover;
-}
-
-.product-info{
-padding:24px;
-}
-
-.product-info h4{
+.feature h4{
 font-family:'Orbitron',sans-serif;
-font-size:22px;
-margin-bottom:10px;
+font-size:24px;
+margin-bottom:15px;
 }
 
-.product-info p{
+.feature p{
+line-height:1.8;
 color:#8f8f8f;
-margin-bottom:12px;
 }
 
-.price{
+/* QUOTE */
+
+.quote{
+padding:140px 8%;
+text-align:center;
+}
+
+.quote h2{
+font-family:'Orbitron',sans-serif;
+font-size:64px;
+max-width:1000px;
+margin:auto;
+line-height:1.15;
+background:linear-gradient(to right,#fff,#9c9cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.quote p{
+margin-top:24px;
 font-size:18px;
-font-weight:700;
-color:white;
+color:#787878;
 }
 
 /* FOOTER */
@@ -283,8 +299,9 @@ padding:50px 20px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.08);
 color:#666;
-margin-top:120px;
 }
+
+/* MOBILE */
 
 @media(max-width:980px){
 
@@ -312,6 +329,10 @@ height:500px;
 font-size:40px;
 }
 
+.quote h2{
+font-size:42px;
+}
+
 }
 
 </style>
@@ -327,9 +348,9 @@ OBSIDIAN HOUSE
 
 <div>
 <a href="#">HOME</a>
-<a href="#">SHOP</a>
 <a href="#">LOOKBOOK</a>
 <a href="#">DROPS</a>
+<a href="#">APPLY</a>
 </div>
 
 </nav>
@@ -341,16 +362,24 @@ OBSIDIAN HOUSE
 <div class="hero-text">
 
 <h1>
-Y2K FUTURE<br>STREETWEAR
+Launch Your Own Luxury Clothing Brand
 </h1>
 
+<h2>
+Without Doing The Hard Part
+</h2>
+
 <p>
-Luxury underground fashion inspired by oversized silhouettes,
-chrome aesthetics, cyber culture, and early 2000s streetwear energy.
+We help creators launch premium fashion brands inspired by underground youth culture, oversized silhouettes, chrome aesthetics, and Y2K streetwear energy.
+
+Websites. Branding. Product Drops.
+
+You bring the audience.
+We build the business.
 </p>
 
-<a class="btn" href="#">
-SHOP DROP
+<a class="btn" href="PASTE YOUR GOOGLE FORM LINK HERE" target="_blank">
+APPLY NOW
 </a>
 
 </div>
@@ -368,11 +397,10 @@ SHOP DROP
 <div class="marquee">
 <div class="track">
 <span>Y2K STREETWEAR</span>
-<span>CHROME FASHION</span>
-<span>LIMITED DROPS</span>
-<span>OVERSIZED FITS</span>
 <span>CYBER AESTHETIC</span>
-<span>UNDERGROUND CULTURE</span>
+<span>OVERSIZED FITS</span>
+<span>UNDERGROUND FASHION</span>
+<span>LIMITED DROPS</span>
 <span>Y2K STREETWEAR</span>
 </div>
 </div>
@@ -380,94 +408,82 @@ SHOP DROP
 <section class="section">
 
 <h2 class="section-title">
-STREET LOOKBOOK
+NEXT GEN STREET STYLE
 </h2>
 
 <p class="section-sub">
-Baggy denim, oversized hoodies, layered outfits, and futuristic street energy.
+Dark nightlife energy, layered outfits, oversized hoodies, baggy denim, chrome accessories, and futuristic silhouettes.
 </p>
 
 <div class="lookbook">
 
 <div class="look">
-
 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1974&auto=format&fit=crop">
-
 <div class="overlay">
 <h3>Chrome Layering</h3>
 <p>Oversized cyber street fits</p>
 </div>
-
 </div>
 
 <div class="look">
-
 <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1974&auto=format&fit=crop">
-
 <div class="overlay">
 <h3>Night Shift</h3>
 <p>Luxury underground fashion</p>
 </div>
-
 </div>
 
 <div class="look">
-
 <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1974&auto=format&fit=crop">
-
 <div class="overlay">
 <h3>Digital Youth</h3>
 <p>Future inspired streetwear</p>
 </div>
-
 </div>
 
 </div>
 
-<div class="products">
+<div class="features">
 
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop">
-
-<div class="product-info">
-<h4>Chrome Zip Hoodie</h4>
-<p>Heavyweight oversized hoodie</p>
-<div class="price">$110</div>
+<div class="feature">
+<h4>Luxury Branding</h4>
+<p>
+We create futuristic fashion identities designed around creators and culture.
+</p>
 </div>
 
+<div class="feature">
+<h4>Exclusive Drops</h4>
+<p>
+Limited collections designed to create hype and exclusivity.
+</p>
 </div>
 
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1974&auto=format&fit=crop">
-
-<div class="product-info">
-<h4>Neon Graphic Tee</h4>
-<p>Vintage washed Y2K tee</p>
-<div class="price">$65</div>
-</div>
-
-</div>
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1974&auto=format&fit=crop">
-
-<div class="product-info">
-<h4>Future Cargo Pants</h4>
-<p>Baggy stacked cargo fit</p>
-<div class="price">$145</div>
-</div>
-
+<div class="feature">
+<h4>Complete Backend</h4>
+<p>
+Websites, products, branding, and launch systems handled for you.
+</p>
 </div>
 
 </div>
 
 </section>
 
+<section class="quote">
+
+<h2>
+“YOU BRING THE AUDIENCE. WE BUILD THE BUSINESS.”
+</h2>
+
+<p>
+OBSIDIAN HOUSE helps creators launch luxury Y2K fashion brands.
+</p>
+
+</section>
+
 <div class="footer">
-© 2026 OBSIDIAN HOUSE — Y2K FUTURE STREETWEAR
+© 2026 OBSIDIAN HOUSE — FUTURE STREETWEAR
 </div>
 
 </body>
