@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>NE0N WORLD</title>
+<title>OBSIDIAN HOUSE</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@ background:#050505;
 color:white;
 overflow-x:hidden;
 background:
-radial-gradient(circle at top left,#32004d 0%,transparent 35%),
+radial-gradient(circle at top left,#2b0040 0%,transparent 35%),
 radial-gradient(circle at bottom right,#001eff 0%,transparent 35%);
 }
 
@@ -37,18 +37,18 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:24px 8%;
-z-index:1000;
 background:rgba(0,0,0,.45);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(255,255,255,.06);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:1000;
 }
 
 .logo{
 font-family:'Orbitron',sans-serif;
 font-size:22px;
-letter-spacing:5px;
+letter-spacing:4px;
 font-weight:700;
-background:linear-gradient(to right,#00e5ff,#ff00d4);
+background:linear-gradient(to right,#00e5ff,#ff00ea);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -80,47 +80,42 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:70px;
 align-items:center;
-max-width:1450px;
+max-width:1400px;
 width:100%;
 }
 
 .hero-text h1{
 font-family:'Orbitron',sans-serif;
-font-size:92px;
+font-size:82px;
 line-height:0.95;
 margin-bottom:28px;
-background:linear-gradient(to right,#ffffff,#8c8cff);
+background:linear-gradient(to right,#ffffff,#8f8fff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:0 0 30px rgba(140,140,255,.2);
 }
 
 .hero-text p{
 font-size:18px;
 line-height:1.9;
-color:#989898;
+color:#969696;
 max-width:620px;
 }
 
 .btn{
 display:inline-block;
-margin-top:42px;
+margin-top:40px;
 padding:18px 42px;
 border-radius:18px;
 background:linear-gradient(90deg,#00e5ff,#8f00ff);
 color:white;
 text-decoration:none;
 font-weight:700;
-box-shadow:0 0 35px rgba(0,229,255,.3);
 transition:.3s;
+box-shadow:0 0 30px rgba(0,229,255,.3);
 }
 
 .btn:hover{
-transform:translateY(-5px) scale(1.02);
-}
-
-.hero-image{
-position:relative;
+transform:translateY(-5px);
 }
 
 .hero-image img{
@@ -129,31 +124,29 @@ height:760px;
 object-fit:cover;
 border-radius:30px;
 border:1px solid rgba(255,255,255,.08);
-box-shadow:0 0 80px rgba(111,92,255,.25);
+box-shadow:0 0 80px rgba(111,92,255,.2);
 }
 
 /* MARQUEE */
 
 .marquee{
-width:100%;
 overflow:hidden;
+white-space:nowrap;
 padding:18px 0;
 border-top:1px solid rgba(255,255,255,.08);
 border-bottom:1px solid rgba(255,255,255,.08);
 background:#0c0c0c;
-white-space:nowrap;
 }
 
-.marquee-track{
+.track{
 display:inline-block;
 animation:scroll 18s linear infinite;
 font-family:'Orbitron',sans-serif;
-font-size:16px;
 letter-spacing:3px;
-color:#bdbdbd;
+color:#cfcfcf;
 }
 
-.marquee-track span{
+.track span{
 margin-right:70px;
 }
 
@@ -174,7 +167,7 @@ padding:120px 8%;
 
 .section-title{
 font-family:'Orbitron',sans-serif;
-font-size:58px;
+font-size:56px;
 text-align:center;
 margin-bottom:18px;
 }
@@ -184,33 +177,31 @@ max-width:760px;
 margin:auto;
 text-align:center;
 font-size:18px;
-line-height:1.9;
-color:#8b8b8b;
+line-height:1.8;
+color:#8d8d8d;
 margin-bottom:80px;
 }
 
-/* STREET LOOKBOOK */
+/* LOOKBOOK */
 
 .lookbook{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:24px;
 }
 
 .look{
 position:relative;
 overflow:hidden;
-border-radius:28px;
+border-radius:26px;
 border:1px solid rgba(255,255,255,.08);
-background:#0f0f0f;
 }
 
 .look img{
 width:100%;
-height:560px;
+height:520px;
 object-fit:cover;
 transition:.5s;
-filter:contrast(1.05);
 }
 
 .look:hover img{
@@ -222,78 +213,67 @@ position:absolute;
 bottom:0;
 left:0;
 width:100%;
-padding:30px;
+padding:28px;
 background:linear-gradient(to top,rgba(0,0,0,.95),transparent);
 }
 
 .overlay h3{
 font-family:'Orbitron',sans-serif;
-font-size:26px;
+font-size:24px;
 margin-bottom:8px;
 }
 
 .overlay p{
 color:#cfcfcf;
-font-size:14px;
 }
 
-/* FEATURES */
+/* PRODUCTS */
 
-.features{
+.products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:24px;
 margin-top:90px;
 }
 
-.feature{
+.product{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.08);
-padding:40px 30px;
 border-radius:24px;
-backdrop-filter:blur(14px);
+overflow:hidden;
 transition:.3s;
 }
 
-.feature:hover{
+.product:hover{
 transform:translateY(-6px);
 border-color:#5d67ff;
-box-shadow:0 0 30px rgba(93,103,255,.2);
 }
 
-.feature h4{
+.product img{
+width:100%;
+height:360px;
+object-fit:cover;
+}
+
+.product-info{
+padding:24px;
+}
+
+.product-info h4{
 font-family:'Orbitron',sans-serif;
-font-size:24px;
-margin-bottom:15px;
+font-size:22px;
+margin-bottom:10px;
 }
 
-.feature p{
-line-height:1.8;
+.product-info p{
 color:#8f8f8f;
+margin-bottom:12px;
 }
 
-/* QUOTE */
-
-.quote{
-padding:140px 8%;
-text-align:center;
-}
-
-.quote h2{
-font-family:'Orbitron',sans-serif;
-font-size:68px;
-max-width:1100px;
-margin:auto;
-line-height:1.15;
-background:linear-gradient(to right,#fff,#9c9cff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.quote p{
-margin-top:28px;
+.price{
 font-size:18px;
-color:#787878;
+font-weight:700;
+color:white;
 }
 
 /* FOOTER */
@@ -303,10 +283,8 @@ padding:50px 20px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.08);
 color:#666;
-font-size:14px;
+margin-top:120px;
 }
-
-/* MOBILE */
 
 @media(max-width:980px){
 
@@ -319,7 +297,7 @@ text-align:center;
 }
 
 .hero-text h1{
-font-size:60px;
+font-size:58px;
 }
 
 .hero-text p{
@@ -334,10 +312,6 @@ height:500px;
 font-size:40px;
 }
 
-.quote h2{
-font-size:42px;
-}
-
 }
 
 </style>
@@ -348,7 +322,7 @@ font-size:42px;
 <nav>
 
 <div class="logo">
-NE0N WORLD
+OBSIDIAN HOUSE
 </div>
 
 <div>
@@ -367,13 +341,12 @@ NE0N WORLD
 <div class="hero-text">
 
 <h1>
-Y2K<br>UNDERGROUND<br>STREETWEAR
+Y2K FUTURE<br>STREETWEAR
 </h1>
 
 <p>
-A futuristic fashion label inspired by underground youth culture,
-baggy silhouettes, cyber aesthetics, chrome energy, and early 2000s street fashion.
-Built for the next generation.
+Luxury underground fashion inspired by oversized silhouettes,
+chrome aesthetics, cyber culture, and early 2000s streetwear energy.
 </p>
 
 <a class="btn" href="#">
@@ -393,27 +366,25 @@ SHOP DROP
 </section>
 
 <div class="marquee">
-<div class="marquee-track">
+<div class="track">
 <span>Y2K STREETWEAR</span>
-<span>CYBER FASHION</span>
-<span>CHROME AESTHETIC</span>
-<span>UNDERGROUND YOUTH</span>
+<span>CHROME FASHION</span>
 <span>LIMITED DROPS</span>
 <span>OVERSIZED FITS</span>
+<span>CYBER AESTHETIC</span>
+<span>UNDERGROUND CULTURE</span>
 <span>Y2K STREETWEAR</span>
-<span>CYBER FASHION</span>
 </div>
 </div>
 
 <section class="section">
 
 <h2 class="section-title">
-NEXT GEN STREET STYLE
+STREET LOOKBOOK
 </h2>
 
 <p class="section-sub">
-Dark nightlife energy, layered outfits, oversized hoodies,
-baggy denim, chrome accessories, and futuristic silhouettes.
+Baggy denim, oversized hoodies, layered outfits, and futuristic street energy.
 </p>
 
 <div class="lookbook">
@@ -453,47 +424,50 @@ baggy denim, chrome accessories, and futuristic silhouettes.
 
 </div>
 
-<div class="features">
+<div class="products">
 
-<div class="feature">
-<h4>Cyber Luxury</h4>
-<p>
-Chrome graphics, futuristic energy, and dark Y2K aesthetics.
-</p>
-</div>
+<div class="product">
 
-<div class="feature">
-<h4>Baggy Silhouettes</h4>
-<p>
-Oversized hoodies, stacked denim, and layered street fits.
-</p>
-</div>
+<img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop">
 
-<div class="feature">
-<h4>Limited Drops</h4>
-<p>
-Exclusive releases designed to feel rare and collectible.
-</p>
+<div class="product-info">
+<h4>Chrome Zip Hoodie</h4>
+<p>Heavyweight oversized hoodie</p>
+<div class="price">$110</div>
 </div>
 
 </div>
 
-</section>
+<div class="product">
 
-<section class="quote">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1974&auto=format&fit=crop">
 
-<h2>
-“FOR THE KIDS WHO GREW UP ONLINE.”
-</h2>
+<div class="product-info">
+<h4>Neon Graphic Tee</h4>
+<p>Vintage washed Y2K tee</p>
+<div class="price">$65</div>
+</div>
 
-<p>
-NE0N WORLD merges futuristic internet culture with luxury streetwear energy.
-</p>
+</div>
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1974&auto=format&fit=crop">
+
+<div class="product-info">
+<h4>Future Cargo Pants</h4>
+<p>Baggy stacked cargo fit</p>
+<div class="price">$145</div>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <div class="footer">
-© 2026 NE0N WORLD — Y2K FUTURE STREETWEAR
+© 2026 OBSIDIAN HOUSE — Y2K FUTURE STREETWEAR
 </div>
 
 </body>
