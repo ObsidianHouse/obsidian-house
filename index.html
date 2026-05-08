@@ -1,513 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OBSIDIAN HOUSE</title>
 
-<title>OBSIDIAN HOUSE</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-<style>
+    h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    h2 {
+      color: #aaa;
+      font-size: 28px;
+      max-width: 800px;
+      line-height: 1.4;
+    }
 
-body{
-font-family:'Inter',sans-serif;
-background:#050505;
-color:white;
-overflow-x:hidden;
-background:
-radial-gradient(circle at top left,#2b0040 0%,transparent 35%),
-radial-gradient(circle at bottom right,#001eff 0%,transparent 35%);
-}
+    p {
+      color: #777;
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-top: 25px;
+    }
 
-/* NAV */
+    .btn {
+      margin-top: 40px;
+      padding: 18px 45px;
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:24px 8%;
-background:rgba(0,0,0,.45);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,.08);
-z-index:1000;
-}
+    .btn:hover {
+      transform: scale(1.05);
+    }
 
-.logo{
-font-family:'Orbitron',sans-serif;
-font-size:22px;
-letter-spacing:4px;
-font-weight:700;
-background:linear-gradient(to right,#00e5ff,#ff00ea);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-nav a{
-text-decoration:none;
-color:#bdbdbd;
-margin-left:28px;
-font-size:14px;
-transition:.3s;
-}
+    .popup-content {
+      background: #111;
+      padding: 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      border: 1px solid #333;
+    }
 
-nav a:hover{
-color:white;
-}
+    .popup-content h3 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
 
-/* HERO */
+    .popup-content p {
+      color: #999;
+      margin-bottom: 25px;
+    }
 
-.hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:140px 8% 100px;
-}
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: black;
+      border: 1px solid #333;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
 
-.hero-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
-max-width:1400px;
-width:100%;
-}
+    textarea {
+      height: 140px;
+      resize: none;
+    }
 
-.hero-text h1{
-font-family:'Orbitron',sans-serif;
-font-size:82px;
-line-height:0.95;
-margin-bottom:24px;
-background:linear-gradient(to right,#ffffff,#8f8fff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.hero-text h2{
-font-size:28px;
-font-weight:400;
-color:#d1d1d1;
-margin-bottom:28px;
-}
-
-.hero-text p{
-font-size:18px;
-line-height:1.9;
-color:#969696;
-max-width:620px;
-}
-
-.btn{
-display:inline-block;
-margin-top:40px;
-padding:18px 42px;
-border-radius:18px;
-background:linear-gradient(90deg,#00e5ff,#8f00ff);
-color:white;
-text-decoration:none;
-font-weight:700;
-transition:.3s;
-box-shadow:0 0 30px rgba(0,229,255,.3);
-}
-
-.btn:hover{
-transform:translateY(-5px);
-}
-
-.hero-image img{
-width:100%;
-height:760px;
-object-fit:cover;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 0 80px rgba(111,92,255,.2);
-}
-
-/* MARQUEE */
-
-.marquee{
-overflow:hidden;
-white-space:nowrap;
-padding:18px 0;
-border-top:1px solid rgba(255,255,255,.08);
-border-bottom:1px solid rgba(255,255,255,.08);
-background:#0c0c0c;
-}
-
-.track{
-display:inline-block;
-animation:scroll 18s linear infinite;
-font-family:'Orbitron',sans-serif;
-letter-spacing:3px;
-color:#cfcfcf;
-}
-
-.track span{
-margin-right:70px;
-}
-
-@keyframes scroll{
-0%{
-transform:translateX(0);
-}
-100%{
-transform:translateX(-50%);
-}
-}
-
-/* SECTION */
-
-.section{
-padding:120px 8%;
-}
-
-.section-title{
-font-family:'Orbitron',sans-serif;
-font-size:56px;
-text-align:center;
-margin-bottom:18px;
-}
-
-.section-sub{
-max-width:760px;
-margin:auto;
-text-align:center;
-font-size:18px;
-line-height:1.8;
-color:#8d8d8d;
-margin-bottom:80px;
-}
-
-/* LOOKBOOK */
-
-.lookbook{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:24px;
-}
-
-.look{
-position:relative;
-overflow:hidden;
-border-radius:26px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.look img{
-width:100%;
-height:520px;
-object-fit:cover;
-transition:.5s;
-}
-
-.look:hover img{
-transform:scale(1.05);
-}
-
-.overlay{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-padding:28px;
-background:linear-gradient(to top,rgba(0,0,0,.95),transparent);
-}
-
-.overlay h3{
-font-family:'Orbitron',sans-serif;
-font-size:24px;
-margin-bottom:8px;
-}
-
-.overlay p{
-color:#cfcfcf;
-}
-
-/* FEATURES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:24px;
-margin-top:90px;
-}
-
-.feature{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-padding:40px 30px;
-border-radius:24px;
-backdrop-filter:blur(14px);
-transition:.3s;
-}
-
-.feature:hover{
-transform:translateY(-6px);
-border-color:#5d67ff;
-}
-
-.feature h4{
-font-family:'Orbitron',sans-serif;
-font-size:24px;
-margin-bottom:15px;
-}
-
-.feature p{
-line-height:1.8;
-color:#8f8f8f;
-}
-
-/* QUOTE */
-
-.quote{
-padding:140px 8%;
-text-align:center;
-}
-
-.quote h2{
-font-family:'Orbitron',sans-serif;
-font-size:64px;
-max-width:1000px;
-margin:auto;
-line-height:1.15;
-background:linear-gradient(to right,#fff,#9c9cff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.quote p{
-margin-top:24px;
-font-size:18px;
-color:#787878;
-}
-
-/* FOOTER */
-
-.footer{
-padding:50px 20px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-color:#666;
-}
-
-/* MOBILE */
-
-@media(max-width:980px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.hero-text{
-text-align:center;
-}
-
-.hero-text h1{
-font-size:58px;
-}
-
-.hero-text p{
-margin:auto;
-}
-
-.hero-image img{
-height:500px;
-}
-
-.section-title{
-font-size:40px;
-}
-
-.quote h2{
-font-size:42px;
-}
-
-}
-
-</style>
+    .close {
+      float: right;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
-  <div style="max-width:700px;margin:60px auto;padding:40px;background:#111;border:1px solid #333;border-radius:20px;color:white;font-family:Arial;">
-  <h1 style="font-size:40px;margin-bottom:10px;">Start Your Project</h1>
 
-  <p style="color:#aaa;margin-bottom:30px;">
-    Fill out the form below and Obsidian House will contact you.
-  </p>
+  <div class="hero">
+    <h1>OBSIDIAN HOUSE</h1>
 
-  <form>
-    <input type="text" placeholder="Full Name" style="width:100%;padding:15px;margin-bottom:15px;background:black;border:1px solid #333;color:white;border-radius:10px;">
+    <h2>
+      Start Your Own Clothing Brand Without Doing The Work
+    </h2>
 
-    <input type="email" placeholder="Email Address" style="width:100%;padding:15px;margin-bottom:15px;background:black;border:1px solid #333;color:white;border-radius:10px;">
+    <p>
+      We design, build, and run your clothing brand.
+      You promote it.
+      We split the profit.
+    </p>
 
-    <input type="text" placeholder="Business Name" style="width:100%;padding:15px;margin-bottom:15px;background:black;border:1px solid #333;color:white;border-radius:10px;">
-
-    <textarea placeholder="Tell us about your project..." style="width:100%;padding:15px;height:150px;background:black;border:1px solid #333;color:white;border-radius:10px;margin-bottom:20px;"></textarea>
-
-    <button type="submit" style="width:100%;padding:18px;background:white;color:black;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;">
-      Submit Inquiry
+    <button class="btn" onclick="openPopup()">
+      APPLY NOW
     </button>
-  </form>
-</div>
-          
+  </div>
 
+  <div class="popup" id="popup">
+    <div class="popup-content">
 
-<nav>
+      <span class="close" onclick="closePopup()">&times;</span>
 
-<div class="logo">
-OBSIDIAN HOUSE
-</div>
+      <h3>Start Your Project</h3>
 
-<div>
-<a href="#">HOME</a>
-<a href="#">LOOKBOOK</a>
-<a href="#">DROPS</a>
-<a href="#">APPLY</a>
-</div>
+      <p>
+        Fill out the form below and Obsidian House will contact you.
+      </p>
 
-</nav>
+      <form>
+        <input type="text" placeholder="Full Name" required>
 
-<section class="hero">
+        <input type="email" placeholder="Email Address" required>
 
-<div class="hero-grid">
+        <input type="text" placeholder="Business Name">
 
-<div class="hero-text">
+        <textarea placeholder="Tell us about your project..."></textarea>
 
-<h1>
-Launch Your Own Luxury Clothing Brand
-</h1>
+        <button type="submit" class="submit-btn">
+          Submit Inquiry
+        </button>
+      </form>
 
-<h2>
-Without Doing The Hard Part
-</h2>
+    </div>
+  </div>
 
-<p>
-We help creators launch premium fashion brands inspired by underground youth culture, oversized silhouettes, chrome aesthetics, and Y2K streetwear energy.
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
 
-Websites. Branding. Product Drops.
-
-You bring the audience.
-We build the business.
-</p>
-
-<a class="btn" href="PASTE YOUR GOOGLE FORM LINK HERE" target="_blank">
-APPLY NOW
-</a>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1974&auto=format&fit=crop">
-
-</div>
-
-</div>
-
-</section>
-
-<div class="marquee">
-<div class="track">
-<span>Y2K STREETWEAR</span>
-<span>CYBER AESTHETIC</span>
-<span>OVERSIZED FITS</span>
-<span>UNDERGROUND FASHION</span>
-<span>LIMITED DROPS</span>
-<span>Y2K STREETWEAR</span>
-</div>
-</div>
-
-<section class="section">
-
-<h2 class="section-title">
-NEXT GEN STREET STYLE
-</h2>
-
-<p class="section-sub">
-Dark nightlife energy, layered outfits, oversized hoodies, baggy denim, chrome accessories, and futuristic silhouettes.
-</p>
-
-<div class="lookbook">
-
-<div class="look">
-<img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1974&auto=format&fit=crop">
-<div class="overlay">
-<h3>Chrome Layering</h3>
-<p>Oversized cyber street fits</p>
-</div>
-</div>
-
-<div class="look">
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1974&auto=format&fit=crop">
-<div class="overlay">
-<h3>Night Shift</h3>
-<p>Luxury underground fashion</p>
-</div>
-</div>
-
-<div class="look">
-<img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop">
-<div class="overlay">
-<h3>Digital Youth</h3>
-<p>Future inspired streetwear</p>
-</div>
-</div>
-
-</div>
-
-<div class="features">
-
-<div class="feature">
-<h4>Luxury Branding</h4>
-<p>
-We create futuristic fashion identities designed around creators and culture.
-</p>
-</div>
-
-<div class="feature">
-<h4>Exclusive Drops</h4>
-<p>
-Limited collections designed to create hype and exclusivity.
-</p>
-</div>
-
-<div class="feature">
-<h4>Complete Backend</h4>
-<p>
-Websites, products, branding, and launch systems handled for you.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="quote">
-
-<h2>
-“YOU BRING THE AUDIENCE. WE BUILD THE BUSINESS.”
-</h2>
-
-<p>
-OBSIDIAN HOUSE helps creators launch luxury Y2K fashion brands.
-</p>
-
-</section>
-
-<div class="footer">
-© 2026 OBSIDIAN HOUSE — FUTURE STREETWEAR
-</div>
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
