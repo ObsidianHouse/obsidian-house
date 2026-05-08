@@ -6,61 +6,66 @@
   <title>OBSIDIAN HOUSE</title>
 
   <style>
-    body{
+    *{
       margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
       background:black;
       color:white;
       font-family:Arial,sans-serif;
-      text-align:center;
       overflow-x:hidden;
     }
 
     .hero{
       min-height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
+      url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1800&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
+      text-align:center;
       padding:20px;
-      background:
-      linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
-      url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
     }
 
     h1{
-      font-size:70px;
-      margin-bottom:10px;
-      letter-spacing:3px;
+      font-size:80px;
+      letter-spacing:4px;
+      margin-bottom:20px;
     }
 
-    h2{
-      color:#aaa;
-      font-size:28px;
-      max-width:800px;
+    .hero h2{
+      color:#cfcfcf;
+      font-size:30px;
+      max-width:850px;
       line-height:1.4;
+      margin-bottom:25px;
     }
 
-    p{
-      color:#777;
-      max-width:700px;
+    .hero p{
+      color:#8d8d8d;
       font-size:20px;
-      line-height:1.6;
+      max-width:700px;
+      line-height:1.7;
     }
 
     .btn{
-      margin-top:40px;
-      padding:18px 45px;
-      background:white;
-      color:black;
+      margin-top:45px;
+      padding:18px 50px;
       border:none;
       border-radius:14px;
+      background:white;
+      color:black;
       font-size:18px;
       font-weight:bold;
       cursor:pointer;
       transition:.3s;
-      text-decoration:none;
     }
 
     .btn:hover{
@@ -68,63 +73,194 @@
     }
 
     .section{
-      padding:100px 20px;
+      padding:100px 30px;
+      text-align:center;
+    }
+
+    .section h2{
+      font-size:50px;
+      margin-bottom:50px;
+      letter-spacing:2px;
     }
 
     .gallery{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      max-width:1200px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+      max-width:1300px;
       margin:auto;
     }
 
     .gallery img{
       width:100%;
-      height:350px;
+      height:500px;
       object-fit:cover;
       border-radius:20px;
+      transition:.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .popup{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.85);
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
+      padding:20px;
+    }
+
+    .popup-box{
+      background:#111;
+      width:100%;
+      max-width:650px;
+      padding:45px;
+      border-radius:24px;
+      border:1px solid #2a2a2a;
+      position:relative;
+    }
+
+    .popup-box h3{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .popup-box p{
+      color:#8f8f8f;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    .close{
+      position:absolute;
+      top:20px;
+      right:25px;
+      font-size:35px;
+      cursor:pointer;
+      color:white;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:16px;
+      margin-bottom:18px;
+      border-radius:12px;
+      border:1px solid #333;
+      background:black;
+      color:white;
+      font-size:16px;
+    }
+
+    textarea{
+      height:140px;
+      resize:none;
+    }
+
+    .submit{
+      width:100%;
+      padding:18px;
+      border:none;
+      border-radius:12px;
+      background:white;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="hero">
+  <section class="hero">
 
     <h1>OBSIDIAN HOUSE</h1>
 
     <h2>
-      Start Your Own Clothing Brand Without Doing The Work
+      Luxury Fashion Brand Development For Creators & Visionaries
     </h2>
 
     <p>
-      We design, build, and run your clothing brand.
-      You promote it.
-      We split the profit.
+      We build high-end fashion brands from the ground up.
+      Design. Marketing. Content. Website. Manufacturing.
+      You bring the vision — we handle the work.
     </p>
 
-    <a class="btn" href="https://forms.google.com" target="_blank">
+    <button class="btn" onclick="openForm()">
       APPLY NOW
-    </a>
+    </button>
 
-  </div>
+  </section>
 
-  <div class="section">
+  <section class="section">
 
-    <h1>OUR STYLE</h1>
+    <h2>OUR AESTHETIC</h2>
 
     <div class="gallery">
 
-      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop">
 
-      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1400&auto=format&fit=crop">
 
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1400&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1400&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <div class="popup" id="popup">
+
+    <div class="popup-box">
+
+      <span class="close" onclick="closeForm()">
+        &times;
+      </span>
+
+      <h3>Start Your Brand</h3>
+
+      <p>
+        Fill out the luxury application below and our team will contact you.
+      </p>
+
+      <form>
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <input type="text" placeholder="Brand / Business Name">
+
+        <textarea placeholder="Tell us about your vision..."></textarea>
+
+        <button class="submit" type="submit">
+          Submit Application
+        </button>
+
+      </form>
 
     </div>
 
   </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
