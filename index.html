@@ -60,7 +60,7 @@ body{
   pointer-events:none;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
   min-height:100vh;
@@ -415,15 +415,19 @@ APPLY NOW
 Fill out the luxury application below and our team will contact you.
 </p>
 
-<form>
+<form action="https://formsubmit.co/matheuscarrizales@gmail.com" method="POST">
 
-<input type="text" placeholder="Full Name" required>
+<input type="hidden" name="_captcha" value="false">
 
-<input type="email" placeholder="Email Address" required>
+<input type="hidden" name="_next" value="https://obsidian-house-sepia.vercel.app/">
 
-<input type="text" placeholder="Brand / Business Name">
+<input type="text" name="name" placeholder="Full Name" required>
 
-<textarea placeholder="Tell us about your vision..."></textarea>
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="text" name="brand" placeholder="Brand / Business Name">
+
+<textarea name="vision" placeholder="Tell us about your vision..."></textarea>
 
 <button class="submit" type="submit">
 Submit Application
