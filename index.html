@@ -1,210 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OBSIDIAN HOUSE</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>OBSIDIAN HOUSE</title>
 
-    body{
-      background:black;
-      color:white;
-      font-family:Arial,sans-serif;
-      overflow-x:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    .hero{
-      min-height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
-      url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1800&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:20px;
-    }
+<style>
 
-    h1{
-      font-size:80px;
-      letter-spacing:4px;
-      margin-bottom:20px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .hero h2{
-      color:#cfcfcf;
-      font-size:30px;
-      max-width:850px;
-      line-height:1.4;
-      margin-bottom:25px;
-    }
+body{
+  background:black;
+  color:white;
+  overflow-x:hidden;
+  font-family:'Inter',sans-serif;
+}
 
-    .hero p{
-      color:#8d8d8d;
-      font-size:20px;
-      max-width:700px;
-      line-height:1.7;
-    }
+/* VIDEO BACKGROUND */
 
-    .btn{
-      margin-top:45px;
-      padding:18px 50px;
-      border:none;
-      border-radius:14px;
-      background:white;
-      color:black;
-      font-size:18px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:.3s;
-    }
+.bg-video{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-3;
+  opacity:.25;
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-    }
+.overlay{
+  position:fixed;
+  inset:0;
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.7),
+  rgba(0,0,0,.9));
+  z-index:-2;
+}
 
-    .section{
-      padding:100px 30px;
-      text-align:center;
-    }
+/* GRAIN TEXTURE */
 
-    .section h2{
-      font-size:50px;
-      margin-bottom:50px;
-      letter-spacing:2px;
-    }
+.grain{
+  position:fixed;
+  inset:0;
+  background:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:.08;
+  z-index:-1;
+  pointer-events:none;
+}
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-      max-width:1300px;
-      margin:auto;
-    }
+/* HERO */
 
-    .gallery img{
-      width:100%;
-      height:500px;
-      object-fit:cover;
-      border-radius:20px;
-      transition:.4s;
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
 
-    .gallery img:hover{
-      transform:scale(1.03);
-    }
+h1{
+  font-family:'Cinzel',serif;
+  font-size:95px;
+  letter-spacing:8px;
+  margin-bottom:20px;
+  text-shadow:0 0 30px rgba(255,255,255,.18);
+  animation:fadeUp 1.2s ease;
+}
 
-    .popup{
-      display:none;
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,.85);
-      justify-content:center;
-      align-items:center;
-      z-index:1000;
-      padding:20px;
-    }
+.hero h2{
+  color:#d0d0d0;
+  font-size:32px;
+  max-width:900px;
+  line-height:1.4;
+  margin-bottom:25px;
+  animation:fadeUp 1.5s ease;
+}
 
-    .popup-box{
-      background:#111;
-      width:100%;
-      max-width:650px;
-      padding:45px;
-      border-radius:24px;
-      border:1px solid #2a2a2a;
-      position:relative;
-    }
+.hero p{
+  color:#8d8d8d;
+  font-size:19px;
+  max-width:700px;
+  line-height:1.8;
+  animation:fadeUp 1.8s ease;
+}
 
-    .popup-box h3{
-      font-size:42px;
-      margin-bottom:10px;
-    }
+/* BUTTON */
 
-    .popup-box p{
-      color:#8f8f8f;
-      margin-bottom:30px;
-      line-height:1.6;
-    }
+.btn{
+  margin-top:45px;
+  padding:18px 55px;
+  border:none;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  color:white;
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.4s;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 0 40px rgba(255,255,255,.08);
+}
 
-    .close{
-      position:absolute;
-      top:20px;
-      right:25px;
-      font-size:35px;
-      cursor:pointer;
-      color:white;
-    }
+.btn:hover{
+  transform:translateY(-5px) scale(1.03);
+  background:white;
+  color:black;
+  box-shadow:0 0 60px rgba(255,255,255,.25);
+}
 
-    input,
-    textarea{
-      width:100%;
-      padding:16px;
-      margin-bottom:18px;
-      border-radius:12px;
-      border:1px solid #333;
-      background:black;
-      color:white;
-      font-size:16px;
-    }
+/* SECTIONS */
 
-    textarea{
-      height:140px;
-      resize:none;
-    }
+.section{
+  padding:120px 30px;
+  text-align:center;
+}
 
-    .submit{
-      width:100%;
-      padding:18px;
-      border:none;
-      border-radius:12px;
-      background:white;
-      color:black;
-      font-size:18px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-  </style>
+.section h2{
+  font-family:'Cinzel',serif;
+  font-size:55px;
+  margin-bottom:60px;
+  letter-spacing:4px;
+}
+
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.gallery img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:24px;
+  transition:.5s;
+  filter:brightness(.85);
+  box-shadow:0 0 40px rgba(255,255,255,.04);
+}
+
+.gallery img:hover{
+  transform:translateY(-10px) scale(1.02);
+  filter:brightness(1);
+  box-shadow:0 0 60px rgba(255,255,255,.12);
+}
+
+/* POPUP */
+
+.popup{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.82);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+  padding:20px;
+  backdrop-filter:blur(10px);
+}
+
+.popup-box{
+  background:rgba(15,15,15,.95);
+  width:100%;
+  max-width:650px;
+  padding:50px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.08);
+  position:relative;
+  box-shadow:0 0 80px rgba(255,255,255,.08);
+}
+
+.popup-box h3{
+  font-family:'Cinzel',serif;
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+.popup-box p{
+  color:#9a9a9a;
+  margin-bottom:30px;
+  line-height:1.7;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:35px;
+  cursor:pointer;
+  color:white;
+}
+
+/* FORM */
+
+input,
+textarea{
+  width:100%;
+  padding:18px;
+  margin-bottom:18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  color:white;
+  font-size:16px;
+  backdrop-filter:blur(10px);
+}
+
+textarea{
+  height:140px;
+  resize:none;
+}
+
+.submit{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:16px;
+  background:white;
+  color:black;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.submit:hover{
+  transform:scale(1.02);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+h1{
+  font-size:55px;
+}
+
+.hero h2{
+  font-size:24px;
+}
+
+.section h2{
+  font-size:40px;
+}
+
+.gallery img{
+  height:420px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <section class="hero">
+<!-- VIDEO -->
 
-    <h1>OBSIDIAN HOUSE</h1>
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-city-at-night-1560088193524?download=1080p" type="video/mp4">
+</video>
 
-    <h2>
-      Luxury Fashion Brand Development For Creators & Visionaries
-    </h2>
+<div class="overlay"></div>
+<div class="grain"></div>
 
-    <p>
-      We build high-end fashion brands from the ground up.
-      Design. Marketing. Content. Website. Manufacturing.
-      You bring the vision — we handle the work.
-    </p>
+<!-- HERO -->
 
-    <button class="btn" onclick="openForm()">
-      APPLY NOW
-    </button>
+<section class="hero">
 
-  </section>
+<h1>OBSIDIAN HOUSE</h1>
 
-  <section class="section">
+<h2>
+Luxury Fashion Brand Development For Creators & Visionaries
+</h2>
 
-    <h2>OUR AESTHETIC</h2>
+<p>
+We build high-end fashion brands from the ground up.
+Design. Marketing. Content. Website. Manufacturing.
+You bring the vision — we handle the work.
+</p>
 
-    <div class="gallery">
+<button class="btn" onclick="openForm()">
+APPLY NOW
+</button>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section">
+
+<h2>OUR AESTHETIC</h2>
+
+<div class="gallery">
 
 <img src="https://www.y2k-wearhouse.com/cdn/shop/files/Y2KJeanBaggyImprime.png?v=1723899231&width=2048">
 
@@ -213,53 +335,58 @@
 <img src="https://i.pinimg.com/originals/d3/b8/db/d3b8dbc35abc3d3e2bdac6ad59c4ab98.jpg?nii=t">
 
 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop">
-    </div>
 
-  </section>
+</div>
 
-  <div class="popup" id="popup">
+</section>
 
-    <div class="popup-box">
+<!-- POPUP -->
 
-      <span class="close" onclick="closeForm()">
-        &times;
-      </span>
+<div class="popup" id="popup">
 
-      <h3>Start Your Brand</h3>
+<div class="popup-box">
 
-      <p>
-        Fill out the luxury application below and our team will contact you.
-      </p> 
+<span class="close" onclick="closeForm()">
+&times;
+</span>
 
-      <form>
+<h3>Start Your Brand</h3>
 
-        <input type="text" placeholder="Full Name" required>
+<p>
+Fill out the luxury application below and our team will contact you.
+</p>
 
-        <input type="email" placeholder="Email Address" required>
+<form>
 
-        <input type="text" placeholder="Brand / Business Name">
+<input type="text" placeholder="Full Name" required>
 
-        <textarea placeholder="Tell us about your vision..."></textarea>
+<input type="email" placeholder="Email Address" required>
 
-        <button class="submit" type="submit">
-          Submit Application
-        </button>
+<input type="text" placeholder="Brand / Business Name">
 
-      </form>
+<textarea placeholder="Tell us about your vision..."></textarea>
 
-    </div>
+<button class="submit" type="submit">
+Submit Application
+</button>
 
-  </div>
+</form>
 
-  <script>
-    function openForm() {
-      document.getElementById("popup").style.display = "flex";
-    }
+</div>
 
-    function closeForm() {
-      document.getElementById("popup").style.display = "none";
-    }
-  </script>
+</div>
+
+<script>
+
+function openForm() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closeForm() {
+  document.getElementById("popup").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
