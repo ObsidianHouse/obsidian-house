@@ -34,20 +34,22 @@ body{
   height:100%;
   object-fit:cover;
   z-index:-3;
-  opacity:.25;
+  opacity:.35;
 }
+
+/* DARK OVERLAY */
 
 .overlay{
   position:fixed;
   inset:0;
   background:
   linear-gradient(to bottom,
-  rgba(0,0,0,.7),
-  rgba(0,0,0,.9));
+  rgba(0,0,0,.55),
+  rgba(0,0,0,.88));
   z-index:-2;
 }
 
-/* GRAIN TEXTURE */
+/* GRAIN EFFECT */
 
 .grain{
   position:fixed;
@@ -58,7 +60,7 @@ body{
   pointer-events:none;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
   min-height:100vh;
@@ -68,31 +70,41 @@ body{
   align-items:center;
   text-align:center;
   padding:20px;
+  backdrop-filter:blur(2px);
 }
 
 h1{
   font-family:'Cinzel',serif;
-  font-size:95px;
-  letter-spacing:8px;
-  margin-bottom:20px;
-  text-shadow:0 0 30px rgba(255,255,255,.18);
-  animation:fadeUp 1.2s ease;
+  font-size:110px;
+  letter-spacing:10px;
+  margin-bottom:25px;
+  color:white;
+
+  text-shadow:
+  0 0 20px rgba(255,255,255,.25),
+  0 0 40px rgba(255,255,255,.15),
+  0 0 80px rgba(255,255,255,.08);
+
+  animation:fadeUp 1s ease;
 }
 
 .hero h2{
-  color:#d0d0d0;
-  font-size:32px;
+  color:#e0e0e0;
+  font-size:34px;
   max-width:900px;
-  line-height:1.4;
+  line-height:1.5;
   margin-bottom:25px;
-  animation:fadeUp 1.5s ease;
+  font-weight:300;
+
+  animation:fadeUp 1.4s ease;
 }
 
 .hero p{
-  color:#8d8d8d;
-  font-size:19px;
+  color:#a1a1a1;
+  font-size:20px;
   max-width:700px;
-  line-height:1.8;
+  line-height:1.9;
+
   animation:fadeUp 1.8s ease;
 }
 
@@ -100,29 +112,40 @@ h1{
 
 .btn{
   margin-top:45px;
-  padding:18px 55px;
+  padding:20px 60px;
   border:none;
-  border-radius:18px;
+  border-radius:20px;
+
   background:rgba(255,255,255,.08);
-  backdrop-filter:blur(12px);
   color:white;
+
   font-size:17px;
   font-weight:600;
-  letter-spacing:2px;
+  letter-spacing:3px;
+
   cursor:pointer;
   transition:.4s;
+
   border:1px solid rgba(255,255,255,.15);
-  box-shadow:0 0 40px rgba(255,255,255,.08);
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 0 30px rgba(255,255,255,.08),
+  inset 0 0 20px rgba(255,255,255,.03);
 }
 
 .btn:hover{
-  transform:translateY(-5px) scale(1.03);
+  transform:translateY(-6px) scale(1.03);
+
   background:white;
   color:black;
-  box-shadow:0 0 60px rgba(255,255,255,.25);
+
+  box-shadow:
+  0 0 60px rgba(255,255,255,.25);
 }
 
-/* SECTIONS */
+/* SECTION */
 
 .section{
   padding:120px 30px;
@@ -151,15 +174,22 @@ h1{
   height:520px;
   object-fit:cover;
   border-radius:24px;
+
   transition:.5s;
+
   filter:brightness(.85);
-  box-shadow:0 0 40px rgba(255,255,255,.04);
+
+  box-shadow:
+  0 0 40px rgba(255,255,255,.05);
 }
 
 .gallery img:hover{
   transform:translateY(-10px) scale(1.02);
+
   filter:brightness(1);
-  box-shadow:0 0 60px rgba(255,255,255,.12);
+
+  box-shadow:
+  0 0 60px rgba(255,255,255,.15);
 }
 
 /* POPUP */
@@ -171,23 +201,34 @@ h1{
   left:0;
   width:100%;
   height:100%;
+
   background:rgba(0,0,0,.82);
+
   justify-content:center;
   align-items:center;
+
   z-index:1000;
   padding:20px;
-  backdrop-filter:blur(10px);
+
+  backdrop-filter:blur(12px);
 }
 
 .popup-box{
   background:rgba(15,15,15,.95);
+
   width:100%;
   max-width:650px;
+
   padding:50px;
+
   border-radius:30px;
+
   border:1px solid rgba(255,255,255,.08);
+
   position:relative;
-  box-shadow:0 0 80px rgba(255,255,255,.08);
+
+  box-shadow:
+  0 0 80px rgba(255,255,255,.08);
 }
 
 .popup-box h3{
@@ -216,13 +257,19 @@ h1{
 input,
 textarea{
   width:100%;
+
   padding:18px;
   margin-bottom:18px;
+
   border-radius:16px;
+
   border:1px solid rgba(255,255,255,.08);
+
   background:rgba(255,255,255,.03);
+
   color:white;
   font-size:16px;
+
   backdrop-filter:blur(10px);
 }
 
@@ -233,13 +280,18 @@ textarea{
 
 .submit{
   width:100%;
+
   padding:18px;
+
   border:none;
   border-radius:16px;
+
   background:white;
   color:black;
+
   font-size:18px;
   font-weight:700;
+
   cursor:pointer;
   transition:.3s;
 }
@@ -251,6 +303,7 @@ textarea{
 /* ANIMATION */
 
 @keyframes fadeUp{
+
   from{
     opacity:0;
     transform:translateY(30px);
@@ -260,27 +313,33 @@ textarea{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-h1{
-  font-size:55px;
-}
+  h1{
+    font-size:58px;
+    letter-spacing:4px;
+  }
 
-.hero h2{
-  font-size:24px;
-}
+  .hero h2{
+    font-size:24px;
+  }
 
-.section h2{
-  font-size:40px;
-}
+  .hero p{
+    font-size:17px;
+  }
 
-.gallery img{
-  height:420px;
-}
+  .section h2{
+    font-size:40px;
+  }
+
+  .gallery img{
+    height:420px;
+  }
 
 }
 
@@ -289,12 +348,12 @@ h1{
 
 <body>
 
-<!-- VIDEO -->
+<!-- VIDEO BACKGROUND -->
 
 <video autoplay muted loop playsinline class="bg-video">
   <source src="https://assets.mixkit.co/videos/preview/mixkit-night-drive-through-a-city-traffic-40747-large.mp4" type="video/mp4">
 </video>
-  
+
 <div class="overlay"></div>
 <div class="grain"></div>
 
@@ -340,7 +399,7 @@ APPLY NOW
 
 </section>
 
-<!-- POPUP -->
+<!-- POPUP FORM -->
 
 <div class="popup" id="popup">
 
